@@ -6,25 +6,13 @@ func calculator(a: Int, b: Int, operation: ( Int, Int)-> Int ) {
 }
 
 var multiplication: ((Int, Int) -> Int)
-multiplication = {
-    let res = $0 * $1
-    return res
-}
+multiplication = { return $0 * $1 }
 var division: ((Int, Int) -> Int)
-division = {
-    let res = $0 / $1
-    return res
-}
+division = { return $0 / $1 }
 var addition: ((Int, Int) -> Int)
-addition = {
-    let res = $0 + $1
-    return res
-}
+addition = { return $0 + $1 }
 var subtraction: ((Int, Int) -> Int)
-subtraction = {
-    let res = $0 - $1
-    return res
-}
+subtraction = { return $0 - $1 }
 
 let operations = [multiplication, division, addition,subtraction]
 
