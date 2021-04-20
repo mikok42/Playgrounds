@@ -15,12 +15,22 @@ struct pointGroup {
             var xPos: Float = 0
             var yPos: Float = 0
             
-            points.map { xPos += $0.x ; yPos = $0.y }
+            xPos = points.map({
+                $0.x
+            }).reduce(0, {a, b in
+                a + b
+            })
             
-//            points.forEach { (point) in
-//                xPos += point.x
-//                yPos += point.y
-//            }
+            yPos = points.map({
+                $0.y
+            }).reduce(0, {a, b in
+                a + b
+            })
+            
+            //            points.forEach { (point) in
+            //                xPos += point.x
+            //                yPos += point.y
+            //            }
             
             return Point(x: xPos/Float(points.count), y: yPos/Float(points.count))
         }
