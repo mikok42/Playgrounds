@@ -15,28 +15,10 @@ struct pointGroup {
     var centerOfMass: Point {
         get {
             guard !points.isEmpty else { return Point(x: 0, y: 0) }
-            
-//            var xPos: Float = 0
-//            var yPos: Float = 0
-            
-            var center = Point(x: 0, y: 0)
-            
-            center = points.map { $0 }.reduce(Point(x: 0, y: 0), +)
-            
-//            xPos = points.map({
-//                $0.x
-//            }).reduce(0, {a, b in
-//                a + b
-//            })
-//
-//            yPos = points.map({
-//                $0.y
-//            }).reduce(0, {a, b in
-//                a + b
-//            })
-           
-           // return Point(x: xPos/Float(points.count), y: yPos/Float(points.count))
-            return center
+
+            return points
+                .map{ Point(x: $0.x/Float(points.count), y: $0.y/Float(points.count)) }
+                .reduce(Point(x: 0, y: 0), + )
         }
     }
 }
