@@ -7,8 +7,8 @@ struct TimeWorked {
     private var hours: Int
     init() { self.hours = 0 }
     var wrappedValue: Int {
-        get {return hours}
-        set {hours = min(24, max(newValue, 0))}
+        get { return hours }
+        set { hours = min(24, max(newValue, 0)) }
     }
 }
 
@@ -27,7 +27,7 @@ class WorkClock {
             var inputCorrect: Bool = false
             print(" hello, \(self.workerName), it's \(days[i]) how long have you worked today?" )
             
-            while(!inputCorrect) {
+            while !inputCorrect {
                 guard let input = readLine() else { print("cant understand") ; return }
                 guard let hours = Int(input) else { print("thats a weird number") ; return}
                 week[i].wrappedValue = hours
