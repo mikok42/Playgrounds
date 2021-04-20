@@ -3,6 +3,10 @@ import Foundation
 struct Point {
     var x: Float = 0.0
     var y: Float = 0.0
+    
+    static func + (left: Point, right: Point) -> Point {
+        return Point(x: left.x + right.x, y: left.y + right.y)
+    }
 }
 
 struct pointGroup {
@@ -12,27 +16,27 @@ struct pointGroup {
         get {
             guard !points.isEmpty else { return Point(x: 0, y: 0) }
             
-            var xPos: Float = 0
-            var yPos: Float = 0
+//            var xPos: Float = 0
+//            var yPos: Float = 0
             
-            xPos = points.map({
-                $0.x
-            }).reduce(0, {a, b in
-                a + b
-            })
+            var center = Point(x: 0, y: 0)
             
-            yPos = points.map({
-                $0.y
-            }).reduce(0, {a, b in
-                a + b
-            })
+            center = points.map { $0 }.reduce(Point(x: 0, y: 0), +)
             
-            //            points.forEach { (point) in
-            //                xPos += point.x
-            //                yPos += point.y
-            //            }
-            
-            return Point(x: xPos/Float(points.count), y: yPos/Float(points.count))
+//            xPos = points.map({
+//                $0.x
+//            }).reduce(0, {a, b in
+//                a + b
+//            })
+//
+//            yPos = points.map({
+//                $0.y
+//            }).reduce(0, {a, b in
+//                a + b
+//            })
+           
+           // return Point(x: xPos/Float(points.count), y: yPos/Float(points.count))
+            return center
         }
     }
 }
